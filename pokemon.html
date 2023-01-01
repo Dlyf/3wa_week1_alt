@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pokemon</title>
+    <script>
+        (async function () {
+            let response = await fetch(
+                "https://pokeapi.co/api/v2/pokemon?limit=151"
+            );
+            let responseArray = await response.json();
+            window.pokemons = responseArray.results;
+        })();
+    </script>
+</head>
+<body>
+    <h1>Pokemon API</h1>
+
+
+    <main id="pokemon-container">
+        <div id="modal">
+            <!-- // html entity -->
+            <span class="close">&times;</span>
+            <section id="modal-content">
+
+            </section>
+        </div>
+    </main>
+
+    
+    <div id="modal">
+    </div>
+    <h2>Modal</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam eum repellat excepturi nobis odit in adipisci? Vel neque doloribus recusandae eveniet atque maiores ducimus obcaecati provident, quidem tempore accusamus corporis.</p>
+    <script>
+
+        window.addEventListener("load", () => {
+            // console.log(window.pokemons);
+        })
+        // const pokedex = document.querySelector('ul')
+        // console.log(pokedex)
+        // const promises = [];
+        // for (let i = 1; i <= 151; i++) {
+        //     const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
+        //     promises.push(fetch(url).then((res) => res.json()));
+        // }
+
+        // Promise.all(promises).then(results => {
+        //     const pokemon = results.map( (data) => ({
+        //         id: data.id,
+        //         name: data.name
+        //     }));
+        //     console.log("test2: ", pokemon);
+        //     displayPokemon(pokemon);
+        // });
+
+        // const displayPokemon = (pokemon) => {
+        //     console.log(pokemon)
+        //     const pokemonDisplay = pokemon.map((pokemon) => `
+        //         <li>
+        //             <h2>${pokemon.id}. ${pokemon.name}</h2>
+        //         </li>
+        //     `)
+        //     .join('');
+        //     pokedex.innerHTML = pokemonDisplay;
+        // }
+
+        // let container = document.querySelect("#pokemon-container");
+        // let pokemonArray = [];
+
+        // async function getPokemonsResultArray() {
+        //     let results = await fetch ("https://pokeapi.co/api/v2/pokemon?limit=151")
+        //     let arr = await result.json();
+        // }
+
+    </script>
+    <script src="./main.js"></script>
+</body>
+</html>
